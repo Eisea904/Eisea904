@@ -1,6 +1,7 @@
   katz_deli = []
 
   def position_in_line(katz_deli, name)
+    #Returns customer's position in queue
     katz_deli.find_index(name) += 1
   end
 
@@ -17,10 +18,21 @@
     if katz_deli[0] == " " || katz_deli[0].nil?
       puts "There is nobody waiting to be served!"
     else
-      puts "The line is currently:"
+      spots_in_queue = []
+      number = 1
+      katz_deli.each do |name|
+        spots_in_queue << "#{number}. #{name}"
+        number += 1
+      puts "The line is currently: #{spots_in_queue.join(" ")}"
+      end
+    end
   end
 
   def now_serving(katz_deli)
-    puts "Currently serving #{katz_deli[0]}."
+    if katz_deli[0] == " " || katz_deli[0].nil?
+      puts "There is nobody waiting to be served!"
+    else
+      puts "Currently serving #{katz_deli[0]}."
+    end
     katz_deli >> katz_deli[0]
   end
