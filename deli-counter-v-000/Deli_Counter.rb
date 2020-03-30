@@ -33,6 +33,6 @@
       puts "There is nobody waiting to be served!"
     else
       puts "Currently serving #{katz_deli[0]}."
+      katz_deli >> katz_deli[0]
     end
-    katz_deli >> katz_deli[0]
   end
